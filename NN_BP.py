@@ -99,6 +99,7 @@ def Neural_Network(X, y, n_input, n_output, n_hidden, learning_rate, lambda1, fu
     X_min = np.amin(X, axis = 0); 
     X_norm = (bx - ax) * (X - X_min) / (X_max - X_min) + ax;
                 
+    
 #For sigmoid and tanh activation functions outputs are rescaled between (0,1) and (-1,1) respectively 
     if func == 0: 
         ay = -1; 
@@ -110,7 +111,7 @@ def Neural_Network(X, y, n_input, n_output, n_hidden, learning_rate, lambda1, fu
     y_max = np.amax(y, axis = 0); 
     y_min = np.amin(y, axis = 0); 
     y_norm = (by - ay) * (y - y_min) / (y_max - y_min) + ay;
-    
+
 #Bias variable added to X_norm as 1 
     n_row = np.size(X_norm, axis=0); 
     bias = np.array([1.] * n_row);
