@@ -20,13 +20,13 @@ def sigmoid(z):
 def sig_prime(output):
     return output * (1 - output) 
 
-#Activation function (tanh)
-def tanh(z):
-    return (np.exp(z) - np.exp(-1*z))/(np.exp(z) + np.exp(-1*z))
-
-#Derivation of tanh function
-def tanh_prime(output):
-    return (1 - np.square(output))
+##Activation function (tanh)
+#def tanh(z):
+#    return (np.exp(z) - np.exp(-1*z))/(np.exp(z) + np.exp(-1*z))
+#
+##Derivation of tanh function
+#def tanh_prime(output):
+#    return (1 - np.square(output))
 
 #Forward 
 def activation(X_norm_2, W_1, W_2, func): 
@@ -38,8 +38,8 @@ def activation(X_norm_2, W_1, W_2, func):
     z = np.dot(X_norm_2, W_1);
     if func == 1:
         output_0 = sigmoid(z);
-    elif func == 0: 
-        output_0 = tanh(z);
+#    elif func == 0: 
+#        output_0 = tanh(z);
 
 #Activation from the hidden layer to outputs
 #At first, bias term is added to the second layer 
@@ -50,8 +50,8 @@ def activation(X_norm_2, W_1, W_2, func):
     z_out = np.dot(output_01, W_2);
     if func == 1: 
         output = sigmoid(z_out);
-    elif func == 0: 
-        output = tanh(z_out);
+#    elif func == 0: 
+#        output = tanh(z_out);
     return output, output_01 #final output and staging output in the hidden layer
     
 #Back propagation 
@@ -166,8 +166,3 @@ def Neural_Network(X, y, n_input, n_output, n_hidden, learning_rate, lambda1, fu
     df2.to_excel(writer, sheet_name='Weights 1')
     df3.to_excel(writer, sheet_name='Weights 2')
     writer.save()
-
-    
-    
-    
-    
